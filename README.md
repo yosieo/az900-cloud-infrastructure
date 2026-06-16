@@ -61,7 +61,7 @@ As part of this case study, a comprehensive financial optimization model was bui
 ---
 
 ## 📈 Training & Portfolio Verification
-* **Hands-on Lab Platform:** GoDeploy Training Environment
+* **Hands-on Lab Platform:** GoDeploy Training Environment AZ-900T00 (2025) - Introduction to Cloud Infrastructure (Cloud Share)
 * **Course Curriculum:** AZ-900: Microsoft Azure Fundamentals (2025)
 * **Official Microsoft Learning Curriculum:** [AZ-900 Core Objectives](https://learn.microsoft.com/en-us/training/courses/az-900t00)
 
