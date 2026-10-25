@@ -22,8 +22,8 @@ This repository contains a comprehensive architectural breakdown and deployment 
 * **Execution:** 
   * Provisioned a custom **Azure Virtual Network (VNet)** and segmented it into targeted subnets.
   * Deployed a **Windows/Linux Virtual Machine (VM)** within the subnets.
-  * Configured **Network Security Group (NSG)** rules, selectively opening inbound traffic (Port 80/443 for HTTP/S and Port 3389/22 for secure administrative access).
-* **Key Takeaway:** Understood how Azure Availability Zones shield infrastructure from localized data center outages, reinforcing the principles of high availability and fault tolerance.
+  * Configured **Network Security Group (NSG)** rules, selectively opening inbound traffic (Port 80/443 for HTTP/S and Port 3389/22 for lab administration. In production I would restrict this to known IPs or use Azure Bastion / just-in-time VM access instead of exposing RDP/SSH).
+* **Key Takeaway:** Learned how subnet segmentation and NSG rules control which traffic reaches a VM, and how Availability Zones add resilience against data center outages.
 
 ### 2. Cloud Data Storage Solutions
 * **The Goal:** Implement a scalable, secure object-storage solution for unstructured enterprise data.
@@ -35,7 +35,7 @@ This repository contains a comprehensive architectural breakdown and deployment 
 ### 3. Resource Governance, Compliance, and Security
 * **The Goal:** Enforce corporate guardrails on a subscription to avoid resource deletion and accidental over-budget deployments.
 * **Execution:** 
-  * **Resource Locks:** Applied `CanNotDelete` locks to core production resource groups to eliminate accidental deletions.
+  * **Resource Locks:** Applied `CanNotDelete` locks to the lab's resource groups to prevent accidental deletion.
   * **Azure Policy:** Created an environment-wide Azure Policy restricting allowed VM SKUs to budget-friendly tiers (e.g., Standard_B series), preventing rogue pricing spikes.
   * **RBAC:** Delegated strict, granular system access to user identities using Azure Role-Based Access Control.
 * **Key Takeaway:** Enforcing automated governance at the subscription scale is crucial for compliance and avoiding human error in cloud environments.
@@ -43,7 +43,7 @@ This repository contains a comprehensive architectural breakdown and deployment 
 ---
 
 ## 💰 Cloud Economics & Cost Optimization
-As part of this case study, a comprehensive financial optimization model was built using official Microsoft pricing tools:
+As part of this case study, I estimated costs using Microsoft's pricing tools:
 * **Scenario Planning:** Modeled a production workload requiring 3 App Service instances and an Azure SQL database using the [Azure Pricing Calculator](https://microsoft.com).
 * **Cost-Control Recommendation:** Identified that shifting traditional on-premises VMs to Azure could achieve structural savings over 3 years by leveraging **Azure Reserved Instances (RIs)** and the **Azure Hybrid Benefit**.
 
@@ -54,9 +54,9 @@ As part of this case study, a comprehensive financial optimization model was bui
 | Domain | Cloud Skillset | Professional Application |
 | :--- | :--- | :--- |
 | **Infrastructure** | Virtualization & Networking | Deploying scalable, secure infrastructure blocks. |
-| **Security** | Zero-Trust & Identity Perimeter | Managing entry vectors via strict NSGs and Entra ID RBAC. |
+| **Security** | Network & Access Control | Restricting traffic with NSGs and access with Entra ID RBAC. |
 | **Governance** | Guardrails & Policy Mapping | Automating enterprise compliance using Azure Policy engine. |
-| **Finance** | Cost Allocation & Forecasting | Maximizing ROI by preventing cloud waste and identifying idle assets. |
+| **Finance** | Cost Allocation & Forecasting | Estimating workload costs and comparing pricing options. |
 
 ---
 
